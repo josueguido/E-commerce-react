@@ -12,6 +12,7 @@
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-modal": "^3.16.1",
         "tailwind": "^4.0.0",
         "tailwindcss-font-inter": "^3.0.1"
     },
