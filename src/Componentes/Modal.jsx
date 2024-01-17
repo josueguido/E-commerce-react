@@ -32,7 +32,7 @@ function Img() {
 
 
     return (
-        <div className='flex flex-wrap sm:flex items-center py-9'>
+        <div className='flex flex-wrap sm:flex items-center justify-center py-9 '>
             <figure className='flex w-full sm:w-72 '>
                 <img src={Producto} onClick={openModal} alt="Product" className=' rounded-md w-full sm:w-80 h-72  transition-opacity hover:opacity-75' />
             </figure>
@@ -63,25 +63,28 @@ function Img() {
                 className='flex items-center  justify-center my-20 px-10 py-10'
             >
 
-              
+
                 <div className='flex flex-wrap items-center'>
-                <img src={Icon} onClick={closeModal} className="w-10 h-10 absolute top-1 l" />
-                    <div className="w-64 carousel rounded-box">
-                        <div className="carousel-item w-full h-full">
-                            <img src={Shoes1} alt="Product" className="w-full"  />
+
+                    <div className="w-72 h-80 carousel rounded-lg">
+                        <img src={Icon} onClick={closeModal} className="absolute top-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+
+                        <div className="carousel-item w-full">
+                            <img src={Shoes1} alt="Product" className="w-full rounded-md" />
+                        </div>
+                        <div></div>
+                        <div className="carousel-item w-full">
+                            <img src={Shoes2} alt="Product" className="w-full" />
                         </div>
                         <div className="carousel-item w-full">
-                            <img src={Shoes2} alt="Product" className="w-full"  />
+                            <img src={Shoes3} alt="Product" className="w-full" />
                         </div>
                         <div className="carousel-item w-full">
-                            <img src={Shoes3} alt="Product"  className="w-full"  />
-                        </div>
-                        <div className="carousel-item w-full">
-                            <img src={Shoes4} alt="Product" className="w-full"  />
+                            <img src={Shoes4} alt="Product" className="w-full" />
                         </div>
                     </div>
 
-                    <div className='lg:w-full lg:flex lg:py-5 lg:gap-x-2'>
+                    <div className='lg:w-full lg:flex lg:py-5 lg:gap-x-5 '>
                         <figure className='flex'>
                             <img src={Producto1} alt="Product-1" className='rounded-md w-14 h-14 transition-opacity hover:opacity-75' />
                         </figure>
@@ -98,11 +101,8 @@ function Img() {
                             <img src={Producto4} alt="Product" className='rounded-md w-14 h-14 transition-opacity hover:opacity-75' />
                         </figure>
                     </div>
-                </div>  
+                </div>
             </Modal>
-
-
-            
         </div >
 
 

@@ -22,12 +22,8 @@ function Principal() {
 
     return (
         <section className='flex flex-col py-6 px-40 bg-white lg:flex-row lg:w-full h-full   '>
-
-
-
             <Img />
-
-            <div className='flex flex-col sm:grid col-span-3 font-sans py-10  my-5 mx-5 px-5  text-star'>
+            <div className='flex flex-col sm:grid col-span-4 font-sans py-10  my-5 mx-5 px-5  text-star'>
                 <h1 className='text-orange-400 uppercase text-sm font-bold'>
                     Sneaker Company
                 </h1>

@@ -1,8 +1,10 @@
-import  { useState } from 'react'; // Import useState
+import { useState } from 'react'; // Import useState
 import logo from '../assets/images/logo.svg';
 import icon from '../assets/images/icon-cart.svg';
+import Close from '../assets/images/icon-close.svg';
 import avatar from '../assets/images/image-avatar.png';
 import Modal from 'react-modal';
+
 
 const Header = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -15,18 +17,52 @@ const Header = () => {
         setModalIsOpen(false);
     };
 
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
     return (
-        <div className='flex items-center px-20 justify-between bg-white '>
-            <img src={logo} alt="Logo" className='mr-2 px-5' />
-            <nav className="inline-flex py-7 px-10">
-                <ul className='flex space-x-4 items-center font-sans font-extralight text-sm'>
-                    <li className="text-gray-500">Collections</li>
-                    <li className="text-gray-500">Men</li>
-                    <li className="text-gray-500">Women</li>
-                    <li className="text-gray-500">About</li>
-                    <li className="text-gray-500">Contact</li>
-                </ul>
+        <div className='flex items-center  py-15 px-24  justify-between bg-white'>
+            <nav className="bg-white border-gray-200 dark:bg-gray-900">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <button
+                        data-collapse-toggle="navbar-default"
+                        type="button"
+                        onClick={toggleMenu}
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="navbar-default"
+                        aria-expanded={menuOpen ? "true" : "false"}
+                    >
+                        <span className="sr-only">Abrir menú principal</span>
+                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                    <img src={logo} className="h-5" alt="Sneakers Logo" />
+                    <div
+                        className={`fixed left-0 top-0 h-full bg-white w-1/2 overflow-y-auto transform translate-x-0 md:translate-x-full md:static md:h-auto md:w-auto transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                        id="navbar-default"
+                    >
+                        <button onClick={closeMenu} className='lg:hidden'>
+                            <img src={Close} className="h-8 my-5 px-5" alt="Close Menu" />
+                        </button>
+
+                        <ul className="flex flex-col p-10 gap-10 lg:gap-0 md:py-5 mt-4 text-lg  lg:text-sm font-medium  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                            <li className="text-gray-600">Collections</li>
+                            <li className="text-gray-600">Men</li>
+                            <li className="text-gray-600">Women</li>
+                            <li className="text-gray-600">About</li>
+                            <li className="text-gray-600">Contact</li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
+
             <div className='flex'>
                 <img
                     src={icon}
@@ -45,7 +81,7 @@ const Header = () => {
                 overlayClassName='Overlay'
             >
                 <div className='bg-white text-black'>
-                    Contenido del modal
+
                     <button onClick={closeModal}>Cerrar</button>
                 </div>
             </Modal>
