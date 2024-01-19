@@ -2,22 +2,47 @@
 import Cart from '../assets/images/icon-cart.svg'
 import { useState } from 'react';
 import Img from './Modal'
+import { v4 as uuidv4 } from 'uuid';
 
 
 
 
+
+
+const useCart = () => {
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (productDetails) => {
+        setCart([...cart, productDetails]);
+    };
+
+    return { cart, addToCart };
+};
 
 function Principal() {
-    const [count, setCount] = useState(0);
-
-    const handleDecrement = () => {
-        setCount((prevCount) => prevCount - 1);
-    };
+    const [count, setCount] = useState(1);
+    const {  addToCart } = useCart(); // Utiliza el hook personalizado
 
     const handleIncrement = () => {
-        setCount((prevCount) => prevCount + 1);
+        setCount(count + 1);
     };
 
+    const handleDecrement = () => {
+        if (count > 1) {
+            setCount(count - 1);
+        }
+    };
+
+    const handleAddToCart = () => {
+        const productDetails = {
+            count: count,
+            id: uuidv4(),
+            name: 'Fall Limited Edition Sneakers', 
+            price: 125.00, 
+        };
+
+        addToCart(productDetails); // Utiliza la función addToCart del hook personalizado
+    };
 
 
     return (
@@ -47,8 +72,8 @@ function Principal() {
                     </h3>
                 </div>
 
-                <section className='flex flex-col lg:flex-row '>
-                    <div className="w-full h-10 lg:w-32  lg:h-10 px-3 py-2 lg:my-2 flex items-center bg-gray-200 rounded-lg">
+                <section className='flex flex-col lg:flex-row'>
+                    <div className="w-full h-10 lg:w-32 lg:h-10 px-3 py-2 lg:my-2 flex items-center bg-gray-200 rounded-lg">
                         <button onClick={handleDecrement} className="text-orange-400 w-1/3 md:w-full py-2">
                             -
                         </button>
@@ -57,16 +82,15 @@ function Principal() {
                             +
                         </button>
                     </div>
-                    <button className=' h-10 lg:h-10 lg:px-10 lg:py-3 px-3 py-5 my-5 lg:my-2 lg:mx-5 flex rounded-md items-center  bg-orange-500  hover:bg-orange-300'>
+                    <button onClick={handleAddToCart} className='h-10 lg:h-10 lg:px-10 lg:py-3 px-3 py-5 my-5 lg:my-2 lg:mx-5 flex rounded-md items-center bg-orange-500 hover:bg-orange-300'>
                         <img src={Cart} className='px-5' alt='Cart' />
                         <p className='flex px-10 lg:px-5 text-center text-white font-sans text-sm'>Add to cart</p>
                     </button>
                 </section>
             </div>
         </section>
-    );
-}
-
+    )
+};
 
 export default Principal;
 
