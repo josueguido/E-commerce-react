@@ -19,7 +19,8 @@
         "react-dom": "^18.2.0",
         "react-modal": "^3.16.1",
         "tailwind": "^4.0.0",
-        "tailwindcss-font-inter": "^3.0.1"
+        "tailwindcss-font-inter": "^3.0.1",
+        "uuid": "^9.0.1"
     },
     "devDependencies": {
         "@types/react": "^18.2.43",
