@@ -8,7 +8,6 @@ import Shoes2 from '../assets/images/image-product-2.jpg'
 import Shoes3 from '../assets/images/image-product-3.jpg'
 import Shoes4 from '../assets/images/image-product-4.jpg'
 import Icon from '../assets/images/icon-close.svg'
-
 import React from 'react'
 import Modal from 'react-modal';
 
@@ -28,7 +27,6 @@ function Img() {
     function closeModal() {
         setIsOpen(false);
     }
-
 
 
     return (
@@ -59,7 +57,7 @@ function Img() {
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
-                contentLabel="Example Modal"
+                contentLabel="Modal"
                 className='flex items-center  justify-center my-20 px-10 py-10'
             >
 
