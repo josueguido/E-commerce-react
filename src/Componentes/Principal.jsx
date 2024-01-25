@@ -3,25 +3,13 @@ import Cart from '../assets/images/icon-cart.svg'
 import { useState } from 'react';
 import Img from './Modal'
 import { v4 as uuidv4 } from 'uuid';
+import Carrito from './Carrito';
 
 
-
-
-
-
-const useCart = () => {
-    const [cart, setCart] = useState([]);
-
-    const addToCart = (productDetails) => {
-        setCart([...cart, productDetails]);
-    };
-
-    return { cart, addToCart };
-};
 
 function Principal() {
     const [count, setCount] = useState(1);
-    const {  addToCart } = useCart(); // Utiliza el hook personalizado
+    const [carrito, setCarrito] = useState([]);
 
     const handleIncrement = () => {
         setCount(count + 1);
@@ -37,11 +25,17 @@ function Principal() {
         const productDetails = {
             count: count,
             id: uuidv4(),
-            name: 'Fall Limited Edition Sneakers', 
-            price: 125.00, 
+            name: 'Fall Limited Edition Sneakers',
+            price: 125.00,
+            total: count * 125.00,
         };
+    
+        console.log('Producto agregado al carrito:', productDetails);
+    
+        // Actualizar el estado del carrito
+        setCarrito((prevCarrito) => [...prevCarrito, productDetails]);
 
-        addToCart(productDetails); // Utiliza la función addToCart del hook personalizado
+        console.log('Estado del carrito después de la actualización:', carrito);
     };
 
 
@@ -84,8 +78,13 @@ function Principal() {
                     </div>
                     <button onClick={handleAddToCart} className='h-10 lg:h-10 lg:px-10 lg:py-3 px-3 py-5 my-5 lg:my-2 lg:mx-5 flex rounded-md items-center bg-orange-500 hover:bg-orange-300'>
                         <img src={Cart} className='px-5' alt='Cart' />
-                        <p className='flex px-10 lg:px-5 text-center text-white font-sans text-sm'>Add to cart</p>
+                        <p className='flex px-10 lg:px-5 text-center text-white font-sans text-sm'>
+                            Add to cart (${count * 125.00}) {/* Muestra el precio total */}
+
+                        </p>
                     </button>
+                    <Carrito carrito={carrito} />  {/* Pasa el estado del carrito como prop al componente Carrito */}
+
                 </section>
             </div>
         </section>
