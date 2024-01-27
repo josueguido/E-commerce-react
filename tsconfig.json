@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es5", // Versión de ECMAScript de destino
+        "lib": ["dom", "es2015", "es2017"], // Librerías utilizadas por el compilador
+        "jsx": "react", // Permite el uso de JSX
+        "strict": true, // Habilita las opciones de modo estricto
+        "esModuleInterop": true, // Simplifica la importación/exportación de módulos
+        "skipLibCheck": true, // Evita la comprobación de librerías de definición de tipos
+        "forceConsistentCasingInFileNames": true, // Garantiza consistencia en los nombres de archivo
+        "module": "commonjs", // Formato de módulo para la generación de código
+        "moduleResolution": "node", // Resolución de módulos según el sistema de archivos
+        "resolveJsonModule": true, // Permite importar módulos JSON como módulos normales
+        "isolatedModules": true, // Habilita la comprobación de archivos de módulo individuales
+        "noEmit": true // No genera archivos de salida durante la compilación
+    },
+    "include": ["src/**/*"], // Rutas de archivos a incluir en la compilación
+    "exclude": ["node_modules"] // Rutas de archivos a excluir de la compilación
+}
