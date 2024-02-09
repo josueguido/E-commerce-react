@@ -1,16 +1,19 @@
+// Container.js
 import Header from "./Header";
-import Footer from "./Footer";
 import Principal from "./Principal";
-
+import Footer from "./Footer";
 
 function Layout() {
-    return (
+    return ( 
         <>
-           <Header></Header>
-           <Principal></Principal>
-           <Footer></Footer>
-        </>
-    );
+        <Header></Header>
+        <main>
+            <Principal></Principal>
+        </main>
+        <Footer></Footer>
+    </>
+     );
 }
 
-export default Layout;
+export default Layout; 
+

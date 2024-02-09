@@ -8,14 +8,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Kumbh Sans', 'sans-serif'],
+                sans: ["Kumbh Sans", "sans-serif"],
             },
         },
     },
-    plugins: [
-        require('flowbite/plugin'), 
-        require('daisyui')
-    ],
-    
-}
-
+    plugins: [require("flowbite/plugin"), require("daisyui")],
+};
