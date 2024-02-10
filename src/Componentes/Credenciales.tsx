@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
+
 interface CredencialesProps {
     enviar: Function;
     titulo: string;
@@ -59,6 +60,7 @@ function Credenciales({ enviar, titulo, boton }: CredencialesProps) {
                     </button>
                 </div>
             </div>
+            
         </section>
 
     );

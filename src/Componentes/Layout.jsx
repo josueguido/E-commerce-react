@@ -1,19 +1,20 @@
-// Container.js
 import Header from "./Header";
 import Principal from "./Principal";
 import Footer from "./Footer";
+import { CarritoProvider } from "./CarritoContext"; // Importa el proveedor de contexto
 
 function Layout() {
-    return ( 
-        <>
-        <Header></Header>
-        <main>
-            <Principal></Principal>
-        </main>
-        <Footer></Footer>
-    </>
-     );
+    return (
+        <CarritoProvider> {/* Envuelve todo en el proveedor de contexto */}
+            <Header />
+            <main>
+                <Principal />
+            </main>
+            <Footer />
+        </CarritoProvider>
+    );
 }
 
-export default Layout; 
+export default Layout;
+
 

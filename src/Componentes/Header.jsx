@@ -17,7 +17,8 @@ const Header = () => {
     };
 
     return (
-        <div className="flex items-center  py-15 px-24  justify-between bg-white">
+        <>
+        <header className="flex items-center  py-15 px-24  justify-between bg-white">
             <nav className="bg-white border-gray-200 dark:bg-gray-900 py-3">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <div className="flex">
@@ -87,7 +88,8 @@ const Header = () => {
                     <img src={avatar} alt="Avatar" className="w-10 h-10 ml-2" />
                 </Link>
             </div>
-        </div>
+        </header>
+        </>
     );
 };
 

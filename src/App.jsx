@@ -12,8 +12,6 @@ const App = () => {
                 <Route path="/" element={<Layout />} />
                 <Route path="/Credenciales" element={<Credenciales />} />
                 <Route path="/Carrito" element={<Carrito />} />
-
-
             </Routes>
         </Router>
     );
